@@ -1,68 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <style>
-    /* CSS styles go here */
-    body {
-      font-family: sans-serif;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    h1 {
-      font-size: 2em;
-    }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    nav {
-      margin-bottom: 1em;
-    }
+        header h1 {
+            margin: 0;
+        }
 
-    nav a {
-      display: inline-block;
-      margin-right: 1em;
-    }
-  </style>
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        #about {
+            background-color: #f2f2f2;
+        }
+
+        #portfolio {
+            background-color: #fff;
+        }
+
+        #contact {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>My Portfolio</h1>
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact Me</a>
-  </nav>
-  <main>
+    <header>
+        <h1>Your Name</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section id="about">
-      <h2>About Me</h2>
-      <p>I am a web developer with a passion for creating beautiful and functional websites. I have experience in HTML, CSS, and JavaScript. I am also proficient in Git and GitHub.</p>
+        <h2>About Me</h2>
+        <p>Your introduction goes here.</p>
     </section>
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Git</li>
-        <li>GitHub</li>
-      </ul>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <!-- Add your portfolio items here with animations -->
     </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>Personal Website</li>
-        <li>E-commerce Website</li>
-        <li>Blog Website</li>
-      </ul>
-    </section>
+
     <section id="contact">
-      <h2>Contact Me</h2>
-      <p>If you are interested in hiring me, please contact me at [email protected]</p>
+        <h2>Contact</h2>
+        <p>Contact information goes here.</p>
     </section>
-  </main>
-  <footer>
-    <p>Copyright 2023 My Portfolio</p>
-  </footer>
+
+    <footer>
+        <p>&copy; 2023 Your Name</p>
+    </footer>
+
+    <script>
+        // Add animations to sections
+        const sections = document.querySelectorAll('section');
+
+        function checkInView() {
+            sections.forEach((section) => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 100) {
+                    section.classList.add('fade-in');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkInView);
+        window.addEventListener('load', checkInView);
+    </script>
 </body>
 </html>
+
